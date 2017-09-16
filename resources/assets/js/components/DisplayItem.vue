@@ -42,7 +42,7 @@ export default {
     methods: {
         fetchItems()
         {
-            let uri = 'http://127.0.0.1:8000/items';
+            let uri = $baseURL + '/items';
             this.axios.get(uri).then((response) => {
                 this.items = response.data;
             });
@@ -50,7 +50,7 @@ export default {
         deleteItem(id)
         {
             let self = this;
-            let uri = `http://127.0.0.1:8000/items/${id}`;
+            let uri = $baseURL + `/items/${id}`;
             this.items.splice(id, 1);
             this.axios.delete(uri).then(function(){
                 self.fetchItems();

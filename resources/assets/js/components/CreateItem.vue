@@ -33,7 +33,7 @@
         },
         methods: {
             addItem() {
-                let uri = 'http://127.0.0.1:8000/items';
+                let uri = $baseURL + '/items';
                 this.axios.post(uri, this.item).then((response) => {
                     this.$router.push({name: 'DisplayItem'})
                 })

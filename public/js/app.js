@@ -794,6 +794,8 @@ var routes = [{
     component: __WEBPACK_IMPORTED_MODULE_7__components_EditItem_vue__["a" /* default */]
 }];
 
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$baseURL = $baseURL;
+
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({ mode: 'history', routes: routes });
 new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_0_vue___default.a.util.extend({ router: router }, __WEBPACK_IMPORTED_MODULE_4__App_vue__["a" /* default */])).$mount('#app');
 
@@ -15293,7 +15295,7 @@ if (false) {(function () {
         addItem: function addItem() {
             var _this = this;
 
-            var uri = 'http://127.0.0.1:8000/items';
+            var uri = $baseURL + '/items';
             this.axios.post(uri, this.item).then(function (response) {
                 _this.$router.push({ name: 'DisplayItem' });
             });
@@ -15529,7 +15531,7 @@ if (false) {(function () {
         getItem: function getItem() {
             var _this = this;
 
-            var uri = 'http://127.0.0.1:8000/items/' + this.$route.params.id + '/edit';
+            var uri = $baseURL + ('/items/' + this.$route.params.id + '/edit');
             this.axios.get(uri).then(function (response) {
                 _this.item = response.data;
             });
@@ -15537,7 +15539,7 @@ if (false) {(function () {
         updateItem: function updateItem() {
             var _this2 = this;
 
-            var uri = 'http://127.0.0.1:8000/items/' + this.$route.params.id;
+            var uri = $baseURL + '/items/' + this.$route.params.id;
             this.axios.patch(uri, this.item).then(function (response) {
                 _this2.$router.push({ name: 'DisplayItem' });
             });
@@ -15688,14 +15690,14 @@ if (false) {
         fetchItems: function fetchItems() {
             var _this = this;
 
-            var uri = 'http://127.0.0.1:8000/items';
+            var uri = $baseURL + '/items';
             this.axios.get(uri).then(function (response) {
                 _this.items = response.data;
             });
         },
         deleteItem: function deleteItem(id) {
             var self = this;
-            var uri = 'http://127.0.0.1:8000/items/' + id;
+            var uri = $baseURL + ('/items/' + id);
             this.items.splice(id, 1);
             this.axios.delete(uri).then(function () {
                 self.fetchItems();

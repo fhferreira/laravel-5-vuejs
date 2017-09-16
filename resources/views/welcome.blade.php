@@ -12,7 +12,8 @@
         <script>
             window.Laravel = <?php echo json_encode([
                     'csrfToken' => csrf_token(),
-            ]); ?>
+            ]); ?>;
+            let $baseURL = '{!! url('/') !!}';
         </script>
         <script src="{{asset('js/app.js')}}"></script>
     </body>

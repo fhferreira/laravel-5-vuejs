@@ -36,13 +36,13 @@
         },
         methods: {
             getItem() {
-                let uri = `http://127.0.0.1:8000/items/${this.$route.params.id}/edit`;
+                let uri = $baseURL + `/items/${this.$route.params.id}/edit`;
                 this.axios.get(uri).then((response) => {
                     this.item = response.data;
                 });
             },
             updateItem() {
-                let uri = 'http://127.0.0.1:8000/items/'+this.$route.params.id;
+                let uri = $baseURL + '/items/'+this.$route.params.id;
                 this.axios.patch(uri, this.item).then((response) => {
                     this.$router.push({name: 'DisplayItem'});
                 });

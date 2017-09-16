@@ -30,5 +30,7 @@ const routes = [
     }
 ];
 
+Vue.prototype.$baseURL = $baseURL;
+
 const router = new VueRouter({ mode: 'history', routes: routes});
 new Vue(Vue.util.extend({ router }, App)).$mount('#app');
